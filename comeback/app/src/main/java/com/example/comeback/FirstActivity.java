@@ -42,7 +42,7 @@ public class FirstActivity extends AppCompatActivity {
             public void onClick(View v) {//intent 显示启动
                 /*String data="Hello SecondActivity";*/
                 Intent intent= new Intent(FirstActivity.this, SecondActivity.class);//参数二，要启动的目标活动
-                intent.putExtra("name","张三");//传递字符串toSecond*/
+                intent.putExtra("name","Ellfy");//传递字符串toSecond*/
                 intent.putExtra("age",20);
                  startActivityForResult(intent,0);
             }

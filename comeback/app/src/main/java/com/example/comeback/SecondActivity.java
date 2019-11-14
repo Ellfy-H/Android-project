@@ -16,10 +16,10 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_layout);
 
-        Intent intent=getIntent();
+       /* Intent intent=getIntent();
         String name=intent.getStringExtra("name");
         Integer age=intent.getIntExtra("age",20);
-        Toast.makeText(this,name+age,Toast.LENGTH_LONG).show();
+        Toast.makeText(this,name+age,Toast.LENGTH_LONG).show();*/
 
         Button button2=(Button) findViewById(R.id.button_2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -28,10 +28,19 @@ public class SecondActivity extends AppCompatActivity {
                 Intent intent1=getIntent();
                 String name=intent1.getStringExtra("name");
                 Integer age=intent1.getIntExtra("age",20);
-                intent1.putExtra("result","姓名："+name+"年龄"+age);
+                intent1.putExtra("result","姓名："+name+"\n年龄："+age);
                 setResult(0,intent1);//向上个活动返回数据
                 finish();
             }
         });
+    }
+    @Override
+    public void onBackPressed(){//返回键向上一活动返回数据
+        Intent intent=getIntent();
+        String name=intent.getStringExtra("name");
+        Integer age=intent.getIntExtra("age",20);
+        intent.putExtra("result","姓名："+name+"\n年龄："+age);
+        setResult(0,intent);
+        finish();
     }
 }
